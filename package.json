@@ -1,13 +1,14 @@
 {
   "name": "a11y-cookbook",
   "version": "1.0.0",
-  "description": "## What's understood",
+  "description": "Front-end recipes for building accessible UI components",
   "main": "index.js",
   "dependencies": {
     "gitbook-plugin-hints": "^1.0.2"
   },
   "devDependencies": {},
   "scripts": {
+    "build": "gitbook build && rm -rf docs && mv _book docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
