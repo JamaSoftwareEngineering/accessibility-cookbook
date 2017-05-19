@@ -383,17 +383,25 @@
 <li>Create a DIV with <code>aria-haspopup=&quot;true&quot;</code> to act as container for the dropdown widget.</li>
 <li>Add a BUTTON to be the menu activator. Add text or icon for its content.</li>
 <li>Add a UL with <code>role=&quot;menu&quot;</code> and <code>aria-expanded=&quot;false&quot;</code>. Give it an <code>id</code>.</li>
+<li>On the UL, add <code>aria-label</code> or <code>aria-labelledby</code> and set to an appropriate value.</li>
 <li>On the BUTTON, add <code>aria-controls</code> and set the value to the id of the UL.</li>
 <li>Add LIs with <code>role=&quot;menuitem&quot;</code> to the UL.</li>
-<li>Inside each LI, add a BUTTON or A to act as triggerable menu options.</li>
+<li>Optional: Inside each LI, add a BUTTON or A to act as triggerable menu options.</li>
 </ol>
 <h2 id="keyboard-and-focus">Keyboard and Focus</h2>
 <ol>
 <li>SPACE and ENTER on the menu activator to toggle it. BUTTON gives you
 this behavior natively.</li>
-<li>TAB/SHIFT-TAB between menu items. SPACE and ENTER to select it.</li>
+<li>With the menu open, TAB/SHIFT-TAB or UP/DOWN to move between menu items. 
+SPACE and ENTER to select it.<ul>
+<li>If you use a BUTTON or A inside menuitems, set <code>tabindex=&quot;-1&quot;</code> on each when
+the menu is closed. This takes them out of the page&apos;s natural tab order.</li>
+</ul>
+</li>
 <li>When the menu is open, you shouldn&apos;t be able to TAB away from it. TAB from
 the last menu item sets focus on the first menu item, and vice versa.</li>
+<li>Typing letters or numbers will focus on the menuitem that starts with whatever
+characters typed. Try this in your OS to see the effect in action.</li>
 <li>ESC closes the menu.</li>
 <li>On closing, return focus to the menu activator.</li>
 </ol>
@@ -411,7 +419,8 @@ instead of <code>.expanded</code>.</p>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fa fa-toggle-down&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>   
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span> 
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fruit-menu-options&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fruit-menu-options&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>
+    <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">&quot;fruit-menu-activator&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;menuitem&quot;</span>&gt;</span>
          <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Apples<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -529,7 +538,7 @@ instead of <code>.expanded</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dropdown Menu","level":"5.4","depth":1,"next":{"title":"Load More List Items","level":"6.1","depth":1,"path":"patterns/load-more-list-items.md","ref":"patterns/load-more-list-items.md","articles":[]},"previous":{"title":"Progress Bar","level":"5.3","depth":1,"path":"widgets/progress-bar.md","ref":"widgets/progress-bar.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"widgets/dropdown-menu.md","mtime":"2017-05-19T21:07:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T21:07:51.449Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dropdown Menu","level":"5.4","depth":1,"next":{"title":"Load More List Items","level":"6.1","depth":1,"path":"patterns/load-more-list-items.md","ref":"patterns/load-more-list-items.md","articles":[]},"previous":{"title":"Progress Bar","level":"5.3","depth":1,"path":"widgets/progress-bar.md","ref":"widgets/progress-bar.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"widgets/dropdown-menu.md","mtime":"2017-05-19T21:26:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T21:29:55.033Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
