@@ -2,6 +2,13 @@
 
 Create a button that when clicked reveals a menu with several options.
 
+1. Create a DIV with `aria-haspopup="true"` to act as container for the dropdown widget.
+2. Add a BUTTON to be the menu activator. Add text or icon for its content.
+3. Add a UL with `role="menu"` and `aria-expanded="false"`. Give it an `id`.
+4. On the BUTTON, add `aria-controls` and set the value to the id of the UL.
+5. Add LIs with `role="menuitem"` to the UL.
+6. Inside each LI, add a BUTTON or A to act as triggerable menu options.
+
 ## Keyboard and Focus
 
 0. SPACE and ENTER on the menu activator to toggle it. BUTTON gives you

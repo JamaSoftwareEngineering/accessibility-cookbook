@@ -379,6 +379,14 @@
                                 
                                 <h1 id="dropdown-menu">Dropdown Menu</h1>
 <p>Create a button that when clicked reveals a menu with several options.</p>
+<ol>
+<li>Create a DIV with <code>aria-haspopup=&quot;true&quot;</code> to act as container for the dropdown widget.</li>
+<li>Add a BUTTON to be the menu activator. Add text or icon for its content.</li>
+<li>Add a UL with <code>role=&quot;menu&quot;</code> and <code>aria-expanded=&quot;false&quot;</code>. Give it an <code>id</code>.</li>
+<li>On the BUTTON, add <code>aria-controls</code> and set the value to the id of the UL.</li>
+<li>Add LIs with <code>role=&quot;menuitem&quot;</code> to the UL.</li>
+<li>Inside each LI, add a BUTTON or A to act as triggerable menu options.</li>
+</ol>
 <h2 id="keyboard-and-focus">Keyboard and Focus</h2>
 <ol>
 <li>SPACE and ENTER on the menu activator to toggle it. BUTTON gives you
@@ -521,7 +529,7 @@ instead of <code>.expanded</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dropdown Menu","level":"5.4","depth":1,"next":{"title":"Load More List Items","level":"6.1","depth":1,"path":"patterns/load-more-list-items.md","ref":"patterns/load-more-list-items.md","articles":[]},"previous":{"title":"Progress Bar","level":"5.3","depth":1,"path":"widgets/progress-bar.md","ref":"widgets/progress-bar.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"widgets/dropdown-menu.md","mtime":"2017-05-13T17:33:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T16:11:29.439Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dropdown Menu","level":"5.4","depth":1,"next":{"title":"Load More List Items","level":"6.1","depth":1,"path":"patterns/load-more-list-items.md","ref":"patterns/load-more-list-items.md","articles":[]},"previous":{"title":"Progress Bar","level":"5.3","depth":1,"path":"widgets/progress-bar.md","ref":"widgets/progress-bar.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"widgets/dropdown-menu.md","mtime":"2017-05-19T21:07:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T21:07:51.449Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
