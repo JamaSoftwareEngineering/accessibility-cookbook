@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Progress Bar · GitBook</title>
+        <title>Button with Image or Icon · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="dropdown-menu.html" />
+    <link rel="next" href="../forms/invalid-fields.html" />
     
     
-    <link rel="prev" href="modal-dialogs.html" />
+    <link rel="prev" href="link-with-svg-content.html" />
     
 
     </head>
@@ -155,9 +155,9 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="../buttons-and-links/link-no-href.html">
+        <li class="chapter " data-level="3.1" data-path="link-no-href.html">
             
-                <a href="../buttons-and-links/link-no-href.html">
+                <a href="link-no-href.html">
             
                     
                     Link with no HREF
@@ -168,9 +168,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../buttons-and-links/link-with-svg-content.html">
+        <li class="chapter " data-level="3.2" data-path="link-with-svg-content.html">
             
-                <a href="../buttons-and-links/link-with-svg-content.html">
+                <a href="link-with-svg-content.html">
             
                     
                     Link with SVG Content
@@ -181,9 +181,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="../buttons-and-links/button-with-image-icon.html">
+        <li class="chapter active" data-level="3.3" data-path="button-with-image-icon.html">
             
-                <a href="../buttons-and-links/button-with-image-icon.html">
+                <a href="button-with-image-icon.html">
             
                     
                     Button with Image or Icon
@@ -247,9 +247,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="text-link-toggle.html">
+        <li class="chapter " data-level="5.1" data-path="../widgets/text-link-toggle.html">
             
-                <a href="text-link-toggle.html">
+                <a href="../widgets/text-link-toggle.html">
             
                     
                     Text Link Toggle
@@ -260,9 +260,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="modal-dialogs.html">
+        <li class="chapter " data-level="5.2" data-path="../widgets/modal-dialogs.html">
             
-                <a href="modal-dialogs.html">
+                <a href="../widgets/modal-dialogs.html">
             
                     
                     Modal Dialogs
@@ -273,9 +273,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.3" data-path="progress-bar.html">
+        <li class="chapter " data-level="5.3" data-path="../widgets/progress-bar.html">
             
-                <a href="progress-bar.html">
+                <a href="../widgets/progress-bar.html">
             
                     
                     Progress Bar
@@ -286,9 +286,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="dropdown-menu.html">
+        <li class="chapter " data-level="5.4" data-path="../widgets/dropdown-menu.html">
             
-                <a href="dropdown-menu.html">
+                <a href="../widgets/dropdown-menu.html">
             
                     
                     Dropdown Menu
@@ -362,7 +362,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Progress Bar</a>
+        <a href=".." >Button with Image or Icon</a>
     </h1>
 </div>
 
@@ -377,42 +377,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="loading-progress-bar">Loading Progress Bar</h1>
+                                <h1 id="button-with-image-or-icon">Button with Image or Icon</h1>
 <ol>
-<li>Create a PROGRESS element.</li>
-<li>Set the progress bar&apos;s values:<ul>
-<li>If determinate, add <code>max</code>, and <code>value</code> attributes.</li>
-<li>If indeterminate, omit the <code>value</code> attribute.</li>
-</ul>
-</li>
-<li>Create a DIV with <code>aria-live=&quot;polite&quot;</code>. This is a live region to announce updates.</li>
-<li>As your progress updates, update the <code>value</code> on the PROGRESS and the text content 
-of the DIV live region.</li>
+<li>Add <code>title</code> to the BUTTON with a value of text that describes the purpose of the button.</li>
+<li>Add <code>aria-hidden=&quot;true&quot;</code> on the I or IMG element. </li>
 </ol>
-<blockquote>
-<p>Use the <code>:indeterminate</code> CSS pseudo-class to style the PROGRESS element</p>
-</blockquote>
-<h2 id="example-1-determinate-progress-bar">Example 1: Determinate progress bar</h2>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">progress</span> <span class="hljs-attr">max</span>=<span class="hljs-string">&quot;100&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;35&quot;</span>&gt;</span>35%<span class="hljs-tag">&lt;/<span class="hljs-name">progress</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">&quot;polite&quot;</span>&gt;</span>Loading progress: 35%<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<p>If the button contains text in addition to the icon or image, you do not need to add the <code>title</code>
+to BUTTON, but you do need to keep the <code>aria-hidden</code> on the icon or image.</p>
+<h2 id="example-1-button-with-icon-as-content">Example 1: Button with icon as content</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Edit document&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fa-edit&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
-<h2 id="example-2-indeterminate-progress-bar">Example 2: Indeterminate progress bar</h2>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">progress</span> <span class="hljs-attr">max</span>=<span class="hljs-string">&quot;100&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">progress</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">&quot;polite&quot;</span>&gt;</span>Downloading assets<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<h2 id="example-2-button-with-icon--text-as-content">Example 2: Button with icon + text as content</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fa-edit&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+   Edit Document
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
-<h2 id="example-3-non-html5-progress-bar">Example 3: Non-HTML5 progress bar</h2>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;progressbar&quot;</span> 
-   <span class="hljs-attr">aria-minvalue</span>=<span class="hljs-string">&quot;0&quot;</span> 
-   <span class="hljs-attr">aria-maxvalue</span>=<span class="hljs-string">&quot;100&quot;</span> 
-   <span class="hljs-attr">aria-value</span>=<span class="hljs-string">&quot;35&quot;</span>&gt;</span>35%<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">&quot;polite&quot;</span>&gt;</span>Downloading assets<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress</a></li>
-<li><a href="https://labs.ssbbartgroup.com/index.php/Progress_Bar_with_ARIA_Live_Regions" target="_blank">https://labs.ssbbartgroup.com/index.php/Progress_Bar_with_ARIA_Live_Regions</a></li>
-<li><a href="http://caniuse.com/#feat=css-indeterminate-pseudo" target="_blank">http://caniuse.com/#feat=css-indeterminate-pseudo</a></li>
-</ul>
 
                                 
                                 </section>
@@ -440,12 +422,12 @@ of the DIV live region.</li>
 
             
                 
-                <a href="modal-dialogs.html" class="navigation navigation-prev " aria-label="Previous page: Modal Dialogs">
+                <a href="link-with-svg-content.html" class="navigation navigation-prev " aria-label="Previous page: Link with SVG Content">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="dropdown-menu.html" class="navigation navigation-next " aria-label="Next page: Dropdown Menu">
+                <a href="../forms/invalid-fields.html" class="navigation navigation-next " aria-label="Next page: Invalid Fields">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -456,7 +438,7 @@ of the DIV live region.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Progress Bar","level":"5.3","depth":1,"next":{"title":"Dropdown Menu","level":"5.4","depth":1,"path":"widgets/dropdown-menu.md","ref":"widgets/dropdown-menu.md","articles":[]},"previous":{"title":"Modal Dialogs","level":"5.2","depth":1,"path":"widgets/modal-dialogs.md","ref":"widgets/modal-dialogs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"widgets/progress-bar.md","mtime":"2017-05-13T15:38:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T12:53:13.610Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Button with Image or Icon","level":"3.3","depth":1,"next":{"title":"Invalid Fields","level":"4.1","depth":1,"path":"forms/invalid-fields.md","ref":"forms/invalid-fields.md","articles":[]},"previous":{"title":"Link with SVG Content","level":"3.2","depth":1,"path":"buttons-and-links/link-with-svg-content.md","ref":"buttons-and-links/link-with-svg-content.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"buttons-and-links/button-with-image-icon.md","mtime":"2017-05-05T20:07:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T16:11:29.439Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

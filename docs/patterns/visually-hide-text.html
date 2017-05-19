@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Custom Checkbox · GitBook</title>
+        <title>Visually Hide Text · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../widgets/text-link-toggle.html" />
     
-    
-    <link rel="prev" href="required-fields.html" />
+    <link rel="prev" href="load-more-list-items.html" />
     
 
     </head>
@@ -201,9 +199,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="invalid-fields.html">
+        <li class="chapter " data-level="4.1" data-path="../forms/invalid-fields.html">
             
-                <a href="invalid-fields.html">
+                <a href="../forms/invalid-fields.html">
             
                     
                     Invalid Fields
@@ -214,9 +212,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="required-fields.html">
+        <li class="chapter " data-level="4.2" data-path="../forms/required-fields.html">
             
-                <a href="required-fields.html">
+                <a href="../forms/required-fields.html">
             
                     
                     Required Fields
@@ -227,9 +225,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.3" data-path="custom-checkbox.html">
+        <li class="chapter " data-level="4.3" data-path="../forms/custom-checkbox.html">
             
-                <a href="custom-checkbox.html">
+                <a href="../forms/custom-checkbox.html">
             
                     
                     Custom Checkbox
@@ -306,9 +304,9 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../patterns/load-more-list-items.html">
+        <li class="chapter " data-level="6.1" data-path="load-more-list-items.html">
             
-                <a href="../patterns/load-more-list-items.html">
+                <a href="load-more-list-items.html">
             
                     
                     Load More List Items
@@ -319,9 +317,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../patterns/visually-hide-text.html">
+        <li class="chapter active" data-level="6.2" data-path="visually-hide-text.html">
             
-                <a href="../patterns/visually-hide-text.html">
+                <a href="visually-hide-text.html">
             
                     
                     Visually Hide Text
@@ -362,7 +360,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Custom Checkbox</a>
+        <a href=".." >Visually Hide Text</a>
     </h1>
 </div>
 
@@ -377,56 +375,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="custom-checkbox">Custom Checkbox</h1>
-<p><strong>If possible, use a native checkbox with custom CSS. If not possible, try to argue for using it. If you 
-just can&apos;t because of a particular use case or other reason, then keep reading.</strong></p>
-<ol>
-<li>Add <code>role=&quot;checkbox&quot;</code> to the element simulating the checkbox (receives click events). </li>
-<li>Add <code>aria-checked=&quot;true|false|mixed&quot;</code> to the same element, matching current checked state.</li>
-<li>Add <code>tabindex=&quot;0&quot;</code> to allow this element to get focus.</li>
-<li>Add <code>cursor:pointer</code> to the element&apos;s styles.</li>
-<li>If your checkbox is disabled, <ul>
-<li>Add <code>aria-disabled</code> </li>
-<li>Provide styling to visually indicate the disabled state (e.g., grayed out)</li>
-<li>Set <code>tabindex=&quot;-1&quot;</code> to prevent focus</li>
-</ul>
-</li>
-<li>Listen for these events on the element:<ul>
-<li><code>click</code> and keep track of the value in your internal store</li>
-<li><code>keypress</code> and let users toggle the checked state and value when pressing <code>SPACE</code></li>
-</ul>
-</li>
-</ol>
-<h2 id="example">Example</h2>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;group&quot;</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fruit&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;custom-checkbox&quot;</span>
-      <span class="hljs-attr">tabindex</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">&quot;mixed&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;fruit&quot;</span>&gt;</span>Fruit<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-
-   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;checkbox-group&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;apples&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;custom-checkbox&quot;</span> 
-         <span class="hljs-attr">tabindex</span>=<span class="hljs-string">&quot;-1&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;apples&quot;</span>&gt;</span>Apples<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;bananas&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;custom-checkbox&quot;</span> 
-         <span class="hljs-attr">tabindex</span>=<span class="hljs-string">&quot;-1&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;checkbox&quot;</span> 
-         <span class="hljs-attr">aria-disabled</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;bananas&quot;</span>&gt;</span>Bananas<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+                                <h1 id="visually-hide-text">Visually Hide Text</h1>
+<p>Sometimes, you want an element to be available to AT, but to be visually
+hidden on screen. For that, you can apply a <code>.visually-hidden</code> CSS class
+with the following styles.</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.visually-hidden</span> {
+  <span class="hljs-attribute">position</span>: absolute <span class="hljs-meta">!important</span>;
+  <span class="hljs-attribute">clip</span>: <span class="hljs-built_in">rect</span>(1px 1px 1px 1px); <span class="hljs-comment">/* IE6, IE7 */</span>
+  <span class="hljs-attribute">clip</span>: <span class="hljs-built_in">rect</span>(1px, 1px, 1px, 1px);
+  <span class="hljs-attribute">padding</span>:<span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
+  <span class="hljs-attribute">border</span>:<span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">1px</span> <span class="hljs-meta">!important</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">1px</span> <span class="hljs-meta">!important</span>;
+  <span class="hljs-attribute">overflow</span>: hidden;
+}
 </code></pre>
-<pre><code class="lang-css"><span class="hljs-selector-class">.custom-checkbox</span> {
-   <span class="hljs-attribute">cursor</span>: pointer;
-}
-
-<span class="hljs-selector-class">.custom-checkbox</span><span class="hljs-selector-attr">[aria-disabled]</span> {
-   <span class="hljs-attribute">opacity</span>: .<span class="hljs-number">5</span>;
-   <span class="hljs-attribute">pointer-events</span>: none;
-}
+<h2 id="example">Example</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">&quot;polite&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;visually-hidden&quot;</span>&gt;</span>
+  File saved successfully.
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_checkbox_role" target="_blank">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_checkbox_role</a> </li>
+<li><a href="https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html" target="_blank">https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html</a></li>
 </ul>
 
                                 
@@ -455,14 +426,10 @@ just can&apos;t because of a particular use case or other reason, then keep read
 
             
                 
-                <a href="required-fields.html" class="navigation navigation-prev " aria-label="Previous page: Required Fields">
+                <a href="load-more-list-items.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Load More List Items">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../widgets/text-link-toggle.html" class="navigation navigation-next " aria-label="Next page: Text Link Toggle">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -471,7 +438,7 @@ just can&apos;t because of a particular use case or other reason, then keep read
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Custom Checkbox","level":"4.3","depth":1,"next":{"title":"Text Link Toggle","level":"5.1","depth":1,"path":"widgets/text-link-toggle.md","ref":"widgets/text-link-toggle.md","articles":[]},"previous":{"title":"Required Fields","level":"4.2","depth":1,"path":"forms/required-fields.md","ref":"forms/required-fields.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"forms/custom-checkbox.md","mtime":"2017-05-13T15:37:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T12:53:13.610Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Visually Hide Text","level":"6.2","depth":1,"previous":{"title":"Load More List Items","level":"6.1","depth":1,"path":"patterns/load-more-list-items.md","ref":"patterns/load-more-list-items.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"patterns/visually-hide-text.md","mtime":"2017-05-13T12:16:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T16:11:29.439Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

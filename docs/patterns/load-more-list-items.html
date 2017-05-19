@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Invalid Fields · GitBook</title>
+        <title>Load More List Items · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="required-fields.html" />
+    <link rel="next" href="visually-hide-text.html" />
     
     
-    <link rel="prev" href="../buttons-and-links/button-with-image-icon.html" />
+    <link rel="prev" href="../widgets/dropdown-menu.html" />
     
 
     </head>
@@ -201,9 +201,9 @@
         
         
     
-        <li class="chapter active" data-level="4.1" data-path="invalid-fields.html">
+        <li class="chapter " data-level="4.1" data-path="../forms/invalid-fields.html">
             
-                <a href="invalid-fields.html">
+                <a href="../forms/invalid-fields.html">
             
                     
                     Invalid Fields
@@ -214,9 +214,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="required-fields.html">
+        <li class="chapter " data-level="4.2" data-path="../forms/required-fields.html">
             
-                <a href="required-fields.html">
+                <a href="../forms/required-fields.html">
             
                     
                     Required Fields
@@ -227,9 +227,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="custom-checkbox.html">
+        <li class="chapter " data-level="4.3" data-path="../forms/custom-checkbox.html">
             
-                <a href="custom-checkbox.html">
+                <a href="../forms/custom-checkbox.html">
             
                     
                     Custom Checkbox
@@ -306,9 +306,9 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../patterns/load-more-list-items.html">
+        <li class="chapter active" data-level="6.1" data-path="load-more-list-items.html">
             
-                <a href="../patterns/load-more-list-items.html">
+                <a href="load-more-list-items.html">
             
                     
                     Load More List Items
@@ -319,9 +319,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../patterns/visually-hide-text.html">
+        <li class="chapter " data-level="6.2" data-path="visually-hide-text.html">
             
-                <a href="../patterns/visually-hide-text.html">
+                <a href="visually-hide-text.html">
             
                     
                     Visually Hide Text
@@ -362,7 +362,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Invalid Fields</a>
+        <a href=".." >Load More List Items</a>
     </h1>
 </div>
 
@@ -377,24 +377,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="invalid-fields">Invalid Fields</h1>
+                                <h1 id="load-more-list-items">Load More List Items</h1>
+<p>You have a list of items, with a button labelled, &quot;Load More,&quot; following the list. 
+When clicked, more items are loaded into the list dynamically.</p>
 <ol>
-<li>Add <code>aria-invalid=&quot;true&quot;</code> to the invalid INPUTs.</li>
-<li>Add <code>aria-describedby</code> to the invalid INPUTs. Set the value to the appropriate error message text.</li>
+<li>Add a DIV with <code>aria-live=&quot;polite&quot;</code>. This live region will be used to update AT users of
+dynamic changes in the page. The text in this DIV gets read by AT as it changes.</li>
+<li>After clicking the Load More BUTTON, fetch the data, and set the content of
+the live region to something meaningful, such as <em>Retrieving more users</em>. </li>
+<li>When the data returns and your list is updated, set the live region content, too. 
+Make the text meaningful, such as <em>15 more users loaded</em>.</li>
+<li>Set focus on the first new item fetched, if it&apos;s something actionable.</li>
 </ol>
-<h2 id="example">Example</h2>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Account Sign-Up&quot;</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span>Username<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username&quot;</span> 
-      <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;Username is required.&quot;</span>
-      <span class="hljs-attr">aria-invalid</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
-   ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Initial items --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Apples<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Bananas<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Kiwi<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Loaded in --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Kumquats<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Raspberries<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Oranges<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Load More<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">&quot;polite&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;visually-hidden&quot;</span>&gt;</span>
+  3 more fruit loaded.
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="http://webaim.org/techniques/formvalidation/" target="_blank">http://webaim.org/techniques/formvalidation/</a></li>
-</ul>
 
                                 
                                 </section>
@@ -422,12 +433,12 @@
 
             
                 
-                <a href="../buttons-and-links/button-with-image-icon.html" class="navigation navigation-prev " aria-label="Previous page: Button with Image or Icon">
+                <a href="../widgets/dropdown-menu.html" class="navigation navigation-prev " aria-label="Previous page: Dropdown Menu">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="required-fields.html" class="navigation navigation-next " aria-label="Next page: Required Fields">
+                <a href="visually-hide-text.html" class="navigation navigation-next " aria-label="Next page: Visually Hide Text">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -438,7 +449,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Invalid Fields","level":"4.1","depth":1,"next":{"title":"Required Fields","level":"4.2","depth":1,"path":"forms/required-fields.md","ref":"forms/required-fields.md","articles":[]},"previous":{"title":"Button with Image or Icon","level":"3.3","depth":1,"path":"buttons-and-links/button-with-image-icon.md","ref":"buttons-and-links/button-with-image-icon.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"forms/invalid-fields.md","mtime":"2017-05-13T10:35:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T12:53:13.610Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Load More List Items","level":"6.1","depth":1,"next":{"title":"Visually Hide Text","level":"6.2","depth":1,"path":"patterns/visually-hide-text.md","ref":"patterns/visually-hide-text.md","articles":[]},"previous":{"title":"Dropdown Menu","level":"5.4","depth":1,"path":"widgets/dropdown-menu.md","ref":"widgets/dropdown-menu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"patterns/load-more-list-items.md","mtime":"2017-05-13T12:12:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T16:11:29.439Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Required Fields · GitBook</title>
+        <title>Modal Dialogs · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="custom-checkbox.html" />
+    <link rel="next" href="progress-bar.html" />
     
     
-    <link rel="prev" href="invalid-fields.html" />
+    <link rel="prev" href="text-link-toggle.html" />
     
 
     </head>
@@ -201,9 +201,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="invalid-fields.html">
+        <li class="chapter " data-level="4.1" data-path="../forms/invalid-fields.html">
             
-                <a href="invalid-fields.html">
+                <a href="../forms/invalid-fields.html">
             
                     
                     Invalid Fields
@@ -214,9 +214,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.2" data-path="required-fields.html">
+        <li class="chapter " data-level="4.2" data-path="../forms/required-fields.html">
             
-                <a href="required-fields.html">
+                <a href="../forms/required-fields.html">
             
                     
                     Required Fields
@@ -227,9 +227,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="custom-checkbox.html">
+        <li class="chapter " data-level="4.3" data-path="../forms/custom-checkbox.html">
             
-                <a href="custom-checkbox.html">
+                <a href="../forms/custom-checkbox.html">
             
                     
                     Custom Checkbox
@@ -247,9 +247,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../widgets/text-link-toggle.html">
+        <li class="chapter " data-level="5.1" data-path="text-link-toggle.html">
             
-                <a href="../widgets/text-link-toggle.html">
+                <a href="text-link-toggle.html">
             
                     
                     Text Link Toggle
@@ -260,9 +260,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="../widgets/modal-dialogs.html">
+        <li class="chapter active" data-level="5.2" data-path="modal-dialogs.html">
             
-                <a href="../widgets/modal-dialogs.html">
+                <a href="modal-dialogs.html">
             
                     
                     Modal Dialogs
@@ -273,9 +273,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="../widgets/progress-bar.html">
+        <li class="chapter " data-level="5.3" data-path="progress-bar.html">
             
-                <a href="../widgets/progress-bar.html">
+                <a href="progress-bar.html">
             
                     
                     Progress Bar
@@ -286,9 +286,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="../widgets/dropdown-menu.html">
+        <li class="chapter " data-level="5.4" data-path="dropdown-menu.html">
             
-                <a href="../widgets/dropdown-menu.html">
+                <a href="dropdown-menu.html">
             
                     
                     Dropdown Menu
@@ -362,7 +362,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Required Fields</a>
+        <a href=".." >Modal Dialogs</a>
     </h1>
 </div>
 
@@ -377,20 +377,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="required-fields">Required Fields</h1>
+                                <h1 id="modal-dialogs">Modal Dialogs</h1>
+<p>Modal dialogs (sometimes called <em>popups</em>) need special consideration for keyboardability and element focus.</p>
 <ol>
-<li>Add <code>aria-required=&quot;true&quot;</code> to the required INPUTs.</li>
+<li>Add <code>role=dialog</code> to the container element.</li>
+<li>Add <code>aria-label</code> or <code>aria-labelledby</code> to the container element, with appropriate value.</li>
+<li>Add <code>role=document</code> to the modal content&apos;s container. </li>
+<li>When you open a modal, set focus on the element most likely to benefit a user the most, not just the first focusable element in the markup. 
+For example, a modal containing a form with a close button in the upper-right might have markup that makes the close button the first focusable
+element. Because it has a form, though, a better initial focus point is the first non-hidden INPUT.</li>
+<li>Set a keyboard trap to ensure that users cannot tab away from the modal. Listen for tab keyboard events and re-route when a user
+tabs away from the last focusable element, or shift-tabs away from the first focusable element.</li>
+<li>Close the dialog when the user presses the ESC key.</li>
+<li>After closing, return focus to the element that had focus before the modal was opened. <code>document.activeElement</code> is a good way
+to track focused elements.</li>
 </ol>
-<h1 id="example">Example</h1>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Account Sign-Up&quot;</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span>Username<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">aria-required</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
-   ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<h2 id="example">Example</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;dialog&quot;</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">&quot;confirmation-heading&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;confirmation-heading&quot;</span>&gt;</span>Confirm item deletion<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-body&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;document&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Your item will be deleted immediately.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>   
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;primary&quot;</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>   
+   <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints" target="_blank">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints</a></li>
+<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal" target="_blank">https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal</a></li>
+<li><a href="https://www.marcozehe.de/2015/02/05/advanced-aria-tip-2-accessible-modal-dialogs/" target="_blank">https://www.marcozehe.de/2015/02/05/advanced-aria-tip-2-accessible-modal-dialogs/</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/activeElement" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Document/activeElement</a></li>
+<li><a href="https://github.com/ianmcburnie/jquery-keyboard-trap" target="_blank">https://github.com/ianmcburnie/jquery-keyboard-trap</a></li>
+<li><a href="https://github.com/gdkraus/accessible-modal-dialog" target="_blank">https://github.com/gdkraus/accessible-modal-dialog</a></li>
 </ul>
 
                                 
@@ -419,12 +441,12 @@
 
             
                 
-                <a href="invalid-fields.html" class="navigation navigation-prev " aria-label="Previous page: Invalid Fields">
+                <a href="text-link-toggle.html" class="navigation navigation-prev " aria-label="Previous page: Text Link Toggle">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="custom-checkbox.html" class="navigation navigation-next " aria-label="Next page: Custom Checkbox">
+                <a href="progress-bar.html" class="navigation navigation-next " aria-label="Next page: Progress Bar">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -435,7 +457,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Required Fields","level":"4.2","depth":1,"next":{"title":"Custom Checkbox","level":"4.3","depth":1,"path":"forms/custom-checkbox.md","ref":"forms/custom-checkbox.md","articles":[]},"previous":{"title":"Invalid Fields","level":"4.1","depth":1,"path":"forms/invalid-fields.md","ref":"forms/invalid-fields.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"forms/required-fields.md","mtime":"2017-05-06T15:14:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T12:53:13.610Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Modal Dialogs","level":"5.2","depth":1,"next":{"title":"Progress Bar","level":"5.3","depth":1,"path":"widgets/progress-bar.md","ref":"widgets/progress-bar.md","articles":[]},"previous":{"title":"Text Link Toggle","level":"5.1","depth":1,"path":"widgets/text-link-toggle.md","ref":"widgets/text-link-toggle.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"widgets/modal-dialogs.md","mtime":"2017-05-06T13:44:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T16:11:29.439Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

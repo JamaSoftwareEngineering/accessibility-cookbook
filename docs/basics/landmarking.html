@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Text Link Toggle · GitBook</title>
+        <title>Landmarking · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="modal-dialogs.html" />
+    <link rel="next" href="roles.html" />
     
     
-    <link rel="prev" href="../forms/custom-checkbox.html" />
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -109,9 +109,9 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="../basics/landmarking.html">
+        <li class="chapter active" data-level="2.1" data-path="landmarking.html">
             
-                <a href="../basics/landmarking.html">
+                <a href="landmarking.html">
             
                     
                     Landmarking
@@ -122,9 +122,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="../basics/roles.html">
+        <li class="chapter " data-level="2.2" data-path="roles.html">
             
-                <a href="../basics/roles.html">
+                <a href="roles.html">
             
                     
                     Roles
@@ -135,9 +135,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../basics/focus.html">
+        <li class="chapter " data-level="2.3" data-path="focus.html">
             
-                <a href="../basics/focus.html">
+                <a href="focus.html">
             
                     
                     Focus
@@ -247,9 +247,9 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="text-link-toggle.html">
+        <li class="chapter " data-level="5.1" data-path="../widgets/text-link-toggle.html">
             
-                <a href="text-link-toggle.html">
+                <a href="../widgets/text-link-toggle.html">
             
                     
                     Text Link Toggle
@@ -260,9 +260,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="modal-dialogs.html">
+        <li class="chapter " data-level="5.2" data-path="../widgets/modal-dialogs.html">
             
-                <a href="modal-dialogs.html">
+                <a href="../widgets/modal-dialogs.html">
             
                     
                     Modal Dialogs
@@ -273,9 +273,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="progress-bar.html">
+        <li class="chapter " data-level="5.3" data-path="../widgets/progress-bar.html">
             
-                <a href="progress-bar.html">
+                <a href="../widgets/progress-bar.html">
             
                     
                     Progress Bar
@@ -286,9 +286,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="dropdown-menu.html">
+        <li class="chapter " data-level="5.4" data-path="../widgets/dropdown-menu.html">
             
-                <a href="dropdown-menu.html">
+                <a href="../widgets/dropdown-menu.html">
             
                     
                     Dropdown Menu
@@ -362,7 +362,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Text Link Toggle</a>
+        <a href=".." >Landmarking</a>
     </h1>
 </div>
 
@@ -377,41 +377,90 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="text-link-toggle">Text Link Toggle</h1>
-<p>Create a text link that show/hides a container when clicked.</p>
-<ol>
-<li>Create a BUTTON with text for the link. Style it to look like a plain text link.</li>
-<li>Create a DIV, SECTION, or other tag to hold the content that is shown/hidden.<ul>
-<li>If you didn&apos;t use a SECTION tag, add <code>role=&quot;region&quot;</code> to this element.</li>
-</ul>
-</li>
-<li>Add an <code>id</code> and <code>aria-expanded=&quot;false&quot;</code> for this content element.</li>
-<li>On the BUTTON, add <code>aria-controls</code> and set its value to the id of the content element. </li>
-<li>Update <code>aria-expanded</code> to match the shown/hidden state as it&apos;s toggled.</li>
-<li>When toggling the content visible, set focus on the content element.</li>
-</ol>
-<h2 id="example">Example</h2>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>View your 
-   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-link&quot;</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">&quot;group-conversations&quot;</span>&gt;</span>
-      5 group conversations
-   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>.
-<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;group-conversations&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;hidden&quot;</span>&gt;</span>
-   ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+                                <h1 id="landmarking">Landmarking</h1>
+<p>To help AT users get around a page, it&apos;s essential to &quot;landmark&quot; a page, adding tags, <code>roles</code>, 
+and/or other attributes to properly label parts of the page so they are announced properly in 
+any AT.</p>
+<h2 id="the-basics">The Basics</h2>
+<p>Adding <code>role</code> to tags helps AT such as screenreaders understand some of the meaning of that part
+of the page. For example, that a list of links is navigation for the page or site. Certain HTML5 
+tags, such as ARTICLE, MAIN, NAV, or SECTION have implicit roles.</p>
+<p>By using either an HTML5 tag, such as SECTION, NAV, or FORM, or by using a <code>role</code> attribute with
+a specific, pre-defined value (such as &quot;navigation&quot; or &quot;region&quot;), you help AT users move around 
+the page.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Tag?</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>region</code></td>
+<td>SECTION</td>
+<td>Must have a label (<code>aria-label</code> or <code>aria-labelledby</code>)</td>
+</tr>
+<tr>
+<td><code>form</code></td>
+<td>FORM</td>
+<td>Should have a label with <code>aria-label</code> or <code>aria-labelledby</code></td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>none</td>
+<td>Usually applied to FORM elements</td>
+</tr>
+<tr>
+<td><code>main</code></td>
+<td>MAIN</td>
+<td>Can have more than one MAIN, but need unique IDs</td>
+</tr>
+<tr>
+<td><code>navigation</code></td>
+<td>NAV</td>
+<td>Identify groups of links used for navigation</td>
+</tr>
+<tr>
+<td><code>banner</code></td>
+<td>HEADER</td>
+<td>Only a banner when a descendant of BODY</td>
+</tr>
+<tr>
+<td><code>complementary</code></td>
+<td>ASIDE</td>
+<td>Content is similar to main content, but can stand alone. Should use <code>region</code> if content is not related to main content.</td>
+</tr>
+<tr>
+<td><code>contentinfo</code></td>
+<td>FOOTER</td>
+<td>Use for the block container with copyright, privacy, terms of use, etc</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-word-about-labelling">A Word about Labelling</h2>
+<p>Take care when giving a label to landmarks. <em>It&apos;s not necessary to include the role in 
+the label.</em> Some AT will announce the label with the type of landmark appended to it. For example, 
+the following gets announced as &quot;Main navigation navigation.&quot;  </p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;navigation&quot;</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Main navigation&quot;</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 </code></pre>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>View your 
-   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-link&quot;</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">&quot;group-conversations&quot;</span>&gt;</span>
-      5 group conversations
-   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>.
-<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;group-conversations&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>
-   ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+<p>This would be a better label:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;navigation&quot;</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Main&quot;</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;search&quot;</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Site&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;query&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Query&quot;</span>  /&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 </code></pre>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="http://oaa-accessibility.org/example/20/" target="_blank">http://oaa-accessibility.org/example/20/</a></li>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/examples/landmarks" target="_blank">https://www.w3.org/TR/wai-aria-practices/examples/landmarks</a></li>
 </ul>
 
                                 
@@ -440,12 +489,12 @@
 
             
                 
-                <a href="../forms/custom-checkbox.html" class="navigation navigation-prev " aria-label="Previous page: Custom Checkbox">
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="modal-dialogs.html" class="navigation navigation-next " aria-label="Next page: Modal Dialogs">
+                <a href="roles.html" class="navigation navigation-next " aria-label="Next page: Roles">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -456,7 +505,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Text Link Toggle","level":"5.1","depth":1,"next":{"title":"Modal Dialogs","level":"5.2","depth":1,"path":"widgets/modal-dialogs.md","ref":"widgets/modal-dialogs.md","articles":[]},"previous":{"title":"Custom Checkbox","level":"4.3","depth":1,"path":"forms/custom-checkbox.md","ref":"forms/custom-checkbox.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"widgets/text-link-toggle.md","mtime":"2017-05-13T10:37:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T12:53:13.610Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Landmarking","level":"2.1","depth":1,"next":{"title":"Roles","level":"2.2","depth":1,"path":"basics/roles.md","ref":"basics/roles.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basics/landmarking.md","mtime":"2017-05-06T12:09:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T16:11:29.439Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

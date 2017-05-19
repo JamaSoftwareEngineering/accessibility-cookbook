@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Link with no HREF · GitBook</title>
+        <title>Required Fields · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="link-with-svg-content.html" />
+    <link rel="next" href="custom-checkbox.html" />
     
     
-    <link rel="prev" href="../basics/focus.html" />
+    <link rel="prev" href="invalid-fields.html" />
     
 
     </head>
@@ -155,9 +155,9 @@
         
         
     
-        <li class="chapter active" data-level="3.1" data-path="link-no-href.html">
+        <li class="chapter " data-level="3.1" data-path="../buttons-and-links/link-no-href.html">
             
-                <a href="link-no-href.html">
+                <a href="../buttons-and-links/link-no-href.html">
             
                     
                     Link with no HREF
@@ -168,9 +168,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="link-with-svg-content.html">
+        <li class="chapter " data-level="3.2" data-path="../buttons-and-links/link-with-svg-content.html">
             
-                <a href="link-with-svg-content.html">
+                <a href="../buttons-and-links/link-with-svg-content.html">
             
                     
                     Link with SVG Content
@@ -181,9 +181,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="button-with-image-icon.html">
+        <li class="chapter " data-level="3.3" data-path="../buttons-and-links/button-with-image-icon.html">
             
-                <a href="button-with-image-icon.html">
+                <a href="../buttons-and-links/button-with-image-icon.html">
             
                     
                     Button with Image or Icon
@@ -201,9 +201,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../forms/invalid-fields.html">
+        <li class="chapter " data-level="4.1" data-path="invalid-fields.html">
             
-                <a href="../forms/invalid-fields.html">
+                <a href="invalid-fields.html">
             
                     
                     Invalid Fields
@@ -214,9 +214,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../forms/required-fields.html">
+        <li class="chapter active" data-level="4.2" data-path="required-fields.html">
             
-                <a href="../forms/required-fields.html">
+                <a href="required-fields.html">
             
                     
                     Required Fields
@@ -227,9 +227,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="../forms/custom-checkbox.html">
+        <li class="chapter " data-level="4.3" data-path="custom-checkbox.html">
             
-                <a href="../forms/custom-checkbox.html">
+                <a href="custom-checkbox.html">
             
                     
                     Custom Checkbox
@@ -362,7 +362,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Link with no HREF</a>
+        <a href=".." >Required Fields</a>
     </h1>
 </div>
 
@@ -377,19 +377,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="link-with-no-href">Link with no HREF</h1>
-<p>In modern web development, it&apos;s common to use A tags with <code>href=&quot;#&quot;</code> to create text links
-that trigger javascripted actions. Unfortunately, this markup gets read by most screenreaders
-with the word &quot;link&quot; preprended (&quot;link Home&quot; or &quot;link login&quot;).</p>
-<p><strong>If you don&apos;t have a true resource to put in the <code>href</code>, use a BUTTON styled to look like a 
-text link instead.</strong></p>
-<p>By using BUTTON, you preserve keyboardability in your page and AT can handle the element
-properly.</p>
-<h2 id="example">Example</h2>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-link&quot;</span>&gt;</span>
-   Open help
-<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                <h1 id="required-fields">Required Fields</h1>
+<ol>
+<li>Add <code>aria-required=&quot;true&quot;</code> to the required INPUTs.</li>
+</ol>
+<h1 id="example">Example</h1>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Account Sign-Up&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span>Username<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">aria-required</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+   ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 </code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints" target="_blank">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints</a></li>
+</ul>
 
                                 
                                 </section>
@@ -417,12 +419,12 @@ properly.</p>
 
             
                 
-                <a href="../basics/focus.html" class="navigation navigation-prev " aria-label="Previous page: Focus">
+                <a href="invalid-fields.html" class="navigation navigation-prev " aria-label="Previous page: Invalid Fields">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="link-with-svg-content.html" class="navigation navigation-next " aria-label="Next page: Link with SVG Content">
+                <a href="custom-checkbox.html" class="navigation navigation-next " aria-label="Next page: Custom Checkbox">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -433,7 +435,7 @@ properly.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Link with no HREF","level":"3.1","depth":1,"next":{"title":"Link with SVG Content","level":"3.2","depth":1,"path":"buttons-and-links/link-with-svg-content.md","ref":"buttons-and-links/link-with-svg-content.md","articles":[]},"previous":{"title":"Focus","level":"2.3","depth":1,"path":"basics/focus.md","ref":"basics/focus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"buttons-and-links/link-no-href.md","mtime":"2017-05-06T12:29:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T12:53:13.610Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Required Fields","level":"4.2","depth":1,"next":{"title":"Custom Checkbox","level":"4.3","depth":1,"path":"forms/custom-checkbox.md","ref":"forms/custom-checkbox.md","articles":[]},"previous":{"title":"Invalid Fields","level":"4.1","depth":1,"path":"forms/invalid-fields.md","ref":"forms/invalid-fields.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"forms/required-fields.md","mtime":"2017-05-06T15:14:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-19T16:11:29.439Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
