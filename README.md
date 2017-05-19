@@ -3,7 +3,7 @@
 A collection of recipes for building accessible front-end components.
 
 **The cookbook itself is found in the `docs` folder. Visit
-https://jamasoftwareengineering.github.io/accessibility-cookbook/docs/ to 
+https://jamasoftwareengineering.github.io/accessibility-cookbook to 
 read in your browser.**
 
 ## Quick Start
