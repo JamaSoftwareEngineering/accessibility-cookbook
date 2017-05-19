@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "gitbook serve src",
-    "build": "gitbook build src && rm -rf docs && mv _book docs",
+    "build": "gitbook build src && rm -rf docs && mv src/_book ./docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
