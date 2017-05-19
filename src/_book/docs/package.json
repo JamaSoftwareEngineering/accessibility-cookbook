@@ -4,14 +4,11 @@
   "description": "Front-end recipes for building accessible UI components",
   "main": "index.js",
   "dependencies": {
-    "gitbook": "^3.2.2",
-    "gitbook-cli": "^2.3.0",
     "gitbook-plugin-hints": "^1.0.2"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "gitbook serve src",
-    "build": "gitbook build src && rm -rf docs && mv _book docs",
+    "build": "gitbook build && rm -rf docs && mv _book docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
